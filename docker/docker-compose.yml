@@ -50,11 +50,17 @@ services:
       - /var/log:/var/log/
     environment:
       # 设置数据库连接URL
-      - DATASOURCE_URL=jdbc:mysql://mysql5.7:3306/babasport?charset=utf8mb4&serverTimezone=Asia/Shanghai&useSSL=false
+      - PRIMARY_DATASOURCE_URL=jdbc:mysql://mysql5.7:3306/babasport?charset=utf8mb4&serverTimezone=Asia/Shanghai&useSSL=false
       # 设置数据库连接用户
-      - DATASOURCE_USERNAME=cleancode
+      - PRIMARY_DATASOURCE_USERNAME=cleancode
       # 设置数据库连接密码
-      - DATASOURCE_PASSWORD=root
+      - PRIMARY_DATASOURCE_PASSWORD=root
+      # 设置数据库连接URL
+      - SECONDARY_DATASOURCE_URL=jdbc:mysql://192.168.1.10:3306/alliance?charset=utf8mb4&serverTimezone=Asia/Shanghai&useSSL=false
+      # 设置数据库连接用户
+      - SECONDARY_DATASOURCE_USERNAME=cleancode
+      # 设置数据库连接密码
+      - SECONDARY_DATASOURCE_PASSWORD=root
     # 给容器加上特定权限
     privileged: true
 
